@@ -1,9 +1,9 @@
-package org.example.kmp_case.service
+package org.example.kmp_case.cart.domain
 
-import org.example.kmp_case.model.CartItem
-import org.example.kmp_case.model.Product
+import org.example.kmp_case.cart_item.domain.CartItem
+import org.example.kmp_case.product.domain.Product
 
-class OrderService {
+class Cart {
     private val _cart = mutableListOf<CartItem>()
     val cart: List<CartItem> get() = _cart
 

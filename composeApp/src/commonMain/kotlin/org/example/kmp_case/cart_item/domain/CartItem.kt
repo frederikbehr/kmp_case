@@ -1,4 +1,6 @@
-package org.example.kmp_case.model
+package org.example.kmp_case.cart_item.domain
+
+import org.example.kmp_case.product.domain.Product
 
 data class CartItem(
     val product: Product,
