@@ -634,8 +634,8 @@ class TestProductRepository : ProductRepository {
 
     override suspend fun getAllProducts(): List<Product> = products
 
-    override suspend fun getProductsByCategory(category: String): List<Product> =
-        products
+    override suspend fun getProductsByCategory(category: String?): List<Product> =
+        if (category != null) products
             .filter { it.category == category }
-            .sortedBy { it.subCategory }
+            .sortedBy { it.subCategory } else getAllProducts()
 }
