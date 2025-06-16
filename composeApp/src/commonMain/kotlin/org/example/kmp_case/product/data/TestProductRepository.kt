@@ -240,7 +240,7 @@ class TestProductRepository : ProductRepository {
             category = "Menuer",
             subCategory = "Snacks",
             price = Price(90.00, Currency.DKK),
-            color = ColorUtils.parseColor("#102bc4"),
+            color = ColorUtils.parseColor("#c79610"),
             imageURL = null,
         ),
         Product(
@@ -249,7 +249,7 @@ class TestProductRepository : ProductRepository {
             category = "Menuer",
             subCategory = "Snacks",
             price = Price(90.00, Currency.DKK),
-            color = ColorUtils.parseColor("#102bc4"),
+            color = ColorUtils.parseColor("#c79610"),
             imageURL = null,
         ),
         Product(
@@ -258,7 +258,7 @@ class TestProductRepository : ProductRepository {
             category = "Menuer",
             subCategory = "Snacks",
             price = Price(74.00, Currency.DKK),
-            color = ColorUtils.parseColor("#102bc4"),
+            color = ColorUtils.parseColor("#c79610"),
             imageURL = null,
         ),
         Product(

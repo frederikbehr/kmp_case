@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import org.example.kmp_case.cart.domain.Cart
-import org.example.kmp_case.checkout.presentation.CheckoutMenu
+import org.example.kmp_case.cart.presentation.CheckoutMenu
 import org.example.kmp_case.menu.presentation.MenuList
 import org.example.kmp_case.product_category.data.CategoryRepository
 import org.example.kmp_case.product_category.data.TestCategoryRepository
