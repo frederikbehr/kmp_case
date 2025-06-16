@@ -7,6 +7,7 @@ import io.kamel.image.asyncPainterResource
 
 @Composable
 actual fun NetworkImage(url: String, contentDescription: String?, modifier: Modifier) {
+    // This desktop version uses Kamel for getting and showing images asynchronously.
     val painterResource = asyncPainterResource(data = url)
     KamelImage({ painterResource }, contentDescription = contentDescription, modifier = modifier)
 }

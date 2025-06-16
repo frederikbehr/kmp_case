@@ -7,4 +7,5 @@ data class Product(
     val subCategory: String,
     val price: Double,
     val colorHex: String,
+    val imageURL: String?,
 )
