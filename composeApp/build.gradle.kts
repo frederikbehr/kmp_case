@@ -92,5 +92,10 @@ compose.desktop {
             packageName = "org.example.kmp_case"
             packageVersion = "1.0.0"
         }
+        configurations.all {
+
+            exclude(group = "androidx.compose.ui", module = "ui-util")
+
+        }
     }
 }
