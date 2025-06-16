@@ -3,6 +3,8 @@ package org.example.kmp_case.cart.domain
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.snapshots.SnapshotStateList
 import org.example.kmp_case.cart_item.domain.CartItem
+import org.example.kmp_case.core.domain.Currency
+import org.example.kmp_case.core.domain.Price
 import org.example.kmp_case.product.domain.Product
 
 class Cart {
@@ -17,7 +19,7 @@ class Cart {
             existing.quantity++
         } else {
             // CartItem was not found by product id. Therefore adding new CartItem with product.
-            _cart.add(CartItem(product, 1))
+            _cart.addFirst(CartItem(product, 1))
         }
     }
 
@@ -26,5 +28,17 @@ class Cart {
     }
 
     fun clear() = _cart.clear()
+
+    fun getTotalPrice(): Price {
+        if (_cart.isNotEmpty()) {
+            val totalAmount = _cart.sumOf { it.getTotalPrice.amount }
+            val currency = _cart.first().getTotalPrice.currency
+            return Price(totalAmount, currency)
+        } else {
+            return Price(0.00, Currency.DKK)
+        }
+    }
+
+
 
 }

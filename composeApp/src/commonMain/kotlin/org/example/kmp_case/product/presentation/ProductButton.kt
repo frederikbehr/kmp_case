@@ -86,7 +86,7 @@ fun ProductButton(
                     fontSize = priceFontSize,
                     lineHeight = (priceFontSize.value + 1).sp,
                     modifier = Modifier.padding(vertical = 4.dp).fillMaxWidth(),
-                    color = Color.White.copy(alpha = 0.8f),
+                    color = Color.White.copy(alpha = 0.84f),
                 )
             }
         }

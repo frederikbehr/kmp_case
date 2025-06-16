@@ -14,7 +14,7 @@ class TestProductRepository : ProductRepository {
             category = "Menuer",
             subCategory = "Oksekød",
             price = Price(78.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -23,7 +23,7 @@ class TestProductRepository : ProductRepository {
             category = "Menuer",
             subCategory = "Oksekød",
             price = Price(88.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -41,7 +41,7 @@ class TestProductRepository : ProductRepository {
             category = "Menuer",
             subCategory = "Oksekød",
             price = Price(78.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -77,7 +77,7 @@ class TestProductRepository : ProductRepository {
             category = "Menuer",
             subCategory = "Oksekød",
             price = Price(74.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -86,7 +86,7 @@ class TestProductRepository : ProductRepository {
             category = "Menuer",
             subCategory = "Oksekød",
             price = Price(82.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -95,7 +95,7 @@ class TestProductRepository : ProductRepository {
             category = "Menuer",
             subCategory = "Oksekød",
             price = Price(92.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -104,7 +104,7 @@ class TestProductRepository : ProductRepository {
             category = "Menuer",
             subCategory = "Oksekød",
             price = Price(78.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -113,7 +113,7 @@ class TestProductRepository : ProductRepository {
             category = "Menuer",
             subCategory = "Oksekød",
             price = Price(84.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -140,7 +140,7 @@ class TestProductRepository : ProductRepository {
             category = "Menuer",
             subCategory = "Oksekød",
             price = Price(78.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -176,7 +176,7 @@ class TestProductRepository : ProductRepository {
             category = "Menuer",
             subCategory = "Oksekød",
             price = Price(88.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -185,7 +185,7 @@ class TestProductRepository : ProductRepository {
             category = "Menuer",
             subCategory = "Oksekød",
             price = Price(88.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -194,7 +194,7 @@ class TestProductRepository : ProductRepository {
             category = "Menuer",
             subCategory = "Oksekød",
             price = Price(88.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -203,7 +203,7 @@ class TestProductRepository : ProductRepository {
             category = "Menuer",
             subCategory = "Oksekød",
             price = Price(88.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -212,7 +212,7 @@ class TestProductRepository : ProductRepository {
             category = "Menuer",
             subCategory = "Oksekød",
             price = Price(86.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -240,7 +240,7 @@ class TestProductRepository : ProductRepository {
             category = "Menuer",
             subCategory = "Snacks",
             price = Price(90.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -249,7 +249,7 @@ class TestProductRepository : ProductRepository {
             category = "Menuer",
             subCategory = "Snacks",
             price = Price(90.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -258,7 +258,7 @@ class TestProductRepository : ProductRepository {
             category = "Menuer",
             subCategory = "Snacks",
             price = Price(74.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -276,7 +276,7 @@ class TestProductRepository : ProductRepository {
             category = "Burgere",
             subCategory = "Oksekød",
             price = Price(37.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -285,7 +285,7 @@ class TestProductRepository : ProductRepository {
             category = "Burgere",
             subCategory = "Oksekød",
             price = Price(12.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -294,7 +294,7 @@ class TestProductRepository : ProductRepository {
             category = "Burgere",
             subCategory = "Oksekød",
             price = Price(15.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = "https://www.pngkey.com/png/full/436-4367633_cheeseburger-mcdonalds-cheese-burger.png",
         ),
         Product(
@@ -303,7 +303,7 @@ class TestProductRepository : ProductRepository {
             category = "Burgere",
             subCategory = "Oksekød",
             price = Price(32.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -312,7 +312,7 @@ class TestProductRepository : ProductRepository {
             category = "Burgere",
             subCategory = "Oksekød",
             price = Price(32.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -321,7 +321,7 @@ class TestProductRepository : ProductRepository {
             category = "Burgere",
             subCategory = "Oksekød",
             price = Price(34.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -330,7 +330,7 @@ class TestProductRepository : ProductRepository {
             category = "Burgere",
             subCategory = "Oksekød",
             price = Price(40.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -439,7 +439,7 @@ class TestProductRepository : ProductRepository {
             category = "Sides & Dips",
             subCategory = "Dips",
             price = Price(4.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -448,7 +448,7 @@ class TestProductRepository : ProductRepository {
             category = "Sides & Dips",
             subCategory = "Dips",
             price = Price(4.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -457,7 +457,7 @@ class TestProductRepository : ProductRepository {
             category = "Sides & Dips",
             subCategory = "Dips",
             price = Price(4.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -466,7 +466,7 @@ class TestProductRepository : ProductRepository {
             category = "Sides & Dips",
             subCategory = "Dips",
             price = Price(4.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -475,7 +475,7 @@ class TestProductRepository : ProductRepository {
             category = "Sides & Dips",
             subCategory = "Dips",
             price = Price(4.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -484,7 +484,7 @@ class TestProductRepository : ProductRepository {
             category = "Sides & Dips",
             subCategory = "Dips",
             price = Price(4.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -493,7 +493,7 @@ class TestProductRepository : ProductRepository {
             category = "Sides & Dips",
             subCategory = "Dips",
             price = Price(4.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -502,7 +502,7 @@ class TestProductRepository : ProductRepository {
             category = "Happy Meal®",
             subCategory = "",
             price = Price(4.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -511,7 +511,7 @@ class TestProductRepository : ProductRepository {
             category = "Happy Meal®",
             subCategory = "",
             price = Price(4.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
         Product(
@@ -520,7 +520,7 @@ class TestProductRepository : ProductRepository {
             category = "Happy Meal®",
             subCategory = "",
             price = Price(4.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = null,
         ),
 
@@ -620,7 +620,7 @@ class TestProductRepository : ProductRepository {
             category = "Kolde drikke",
             subCategory = "Mælk",
             price = Price(18.00, Currency.DKK),
-            color = Color.Blue,
+            color = ColorUtils.parseColor("#102bc4"),
             imageURL = "https://images.arla.com/filename/00000057053738_C1N1.PNG?width=375&height=375&format=webp",
         ),
         Product(

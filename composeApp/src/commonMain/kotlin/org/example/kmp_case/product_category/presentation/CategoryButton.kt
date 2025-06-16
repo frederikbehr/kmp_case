@@ -30,8 +30,10 @@ fun CategoryButton(
         onClick = onClick,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 6.dp, horizontal = 12.dp),
-        colors = ButtonDefaults.buttonColors(containerColor = category.color.copy(alpha = 0.3f)),
+            .padding(vertical = 4.dp, horizontal = 12.dp),
+        colors = ButtonDefaults.buttonColors(
+            containerColor = if (isSelected) category.color else category.color.copy(alpha = 0.24f)
+        ),
         shape = RoundedCornerShape(8.dp),
     ) {
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Center) {
@@ -39,15 +41,15 @@ fun CategoryButton(
                 Icon(
                     imageVector = Icons.Filled.Check,
                     contentDescription = "Selected category",
-                    tint = Color.Black.copy(alpha = 0.87f),
+                    tint = Color.White,
                     modifier = Modifier.size(28.dp).padding(end = 8.dp),
                 )
             }
             Text(
                 text = category.name,
-                fontSize = 12.sp,
+                fontSize = 14.sp,
                 modifier = Modifier.padding(vertical = 16.dp),
-                color = Color.Black.copy(alpha = 0.87f)
+                color = if (isSelected) Color.White else Color.Black.copy(alpha = 0.73f)
             )
         }
     }

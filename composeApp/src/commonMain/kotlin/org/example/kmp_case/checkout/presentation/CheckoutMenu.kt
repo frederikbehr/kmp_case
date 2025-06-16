@@ -4,11 +4,15 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
+import androidx.compose.material.icons.filled.DeleteSweep
+import androidx.compose.material.icons.filled.Payment
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.HorizontalDivider
@@ -17,6 +21,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -30,9 +36,20 @@ import org.example.kmp_case.core.domain.ColorUtils
 fun CheckoutMenu(modifier: Modifier, cart: Cart) {
     Box(
         modifier = modifier
+            .fillMaxSize()
+            .drawBehind {
+                drawLine(
+                    color = ColorUtils.parseColor("#dfdfdf"),
+                    start = Offset(0f, 0f),
+                    end = Offset(0f, size.height),
+                    strokeWidth = 4f
+                )
+            }
             .padding(horizontal = 16.dp)
     ) {
-        Column {
+        Column(
+            modifier = Modifier.fillMaxSize()
+        ) {
             Row(
                 modifier = Modifier.padding(top = 32.dp).fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -46,23 +63,24 @@ fun CheckoutMenu(modifier: Modifier, cart: Cart) {
                     color = Color.Black.copy(alpha = 0.87f),
                 )
                 Button(
+                    enabled = cart.cart.isNotEmpty(),
                     onClick = { cart.clear() },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color.Red.copy(alpha = 0.12f),
                         contentColor = Color.Red,
-                        disabledContainerColor = Color.LightGray,
-                        disabledContentColor = Color.Gray,
+                        disabledContainerColor = ColorUtils.parseColor("#ededed"),
+                        disabledContentColor = Color.LightGray,
                     )
                 ) {
                     Icon(
-                        imageVector = Icons.Filled.Clear,
+                        imageVector = Icons.Filled.DeleteSweep,
                         contentDescription = "Clear",
-                        modifier = Modifier.size(22.dp).padding(end = 4.dp),
+                        modifier = Modifier.size(24.dp).padding(end = 4.dp),
                     )
                     Text(
                         text = "Clear",
                         fontWeight = FontWeight.Medium,
-                        fontSize = 15.sp,
+                        fontSize = 14.sp,
                     )
                 }
             }
@@ -73,9 +91,62 @@ fun CheckoutMenu(modifier: Modifier, cart: Cart) {
             )
             CartMenu(
                 cart = cart,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.weight(1f)
             )
-
+            HorizontalDivider(
+                thickness = 2.dp,
+                modifier = Modifier.padding(vertical = 16.dp),
+                color = ColorUtils.parseColor("#eeeeee")
+            )
+            Box(
+                modifier = Modifier.fillMaxWidth().height(100.dp)
+            ) {
+                Column {
+                    Row(
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Text(
+                            text = "Total",
+                            fontWeight = FontWeight.Medium,
+                            textAlign = TextAlign.Start,
+                            fontSize = 20.sp,
+                            color = Color.Black.copy(alpha = 0.87f),
+                            modifier = Modifier.padding(bottom = 12.dp)
+                        )
+                        Text(
+                            text = cart.getTotalPrice().getFormattedPrice(),
+                            fontWeight = FontWeight.Medium,
+                            textAlign = TextAlign.Start,
+                            fontSize = 20.sp,
+                            color = Color.Black.copy(alpha = 0.87f),
+                            modifier = Modifier.padding(bottom = 12.dp)
+                        )
+                    }
+                    Button(
+                        enabled = cart.cart.isNotEmpty(),
+                        onClick = {  },
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = ColorUtils.parseColor("#0ca577"),
+                            contentColor = Color.White,
+                            disabledContainerColor = ColorUtils.parseColor("#ededed"),
+                            disabledContentColor = Color.LightGray,
+                        ),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Icon(
+                            imageVector = Icons.Filled.Payment,
+                            contentDescription = "Pay",
+                            modifier = Modifier.size(22.dp).padding(end = 4.dp),
+                        )
+                        Text(
+                            text = "Pay",
+                            fontWeight = FontWeight.Medium,
+                            fontSize = 15.sp,
+                        )
+                    }
+                }
+            }
         }
     }
 }

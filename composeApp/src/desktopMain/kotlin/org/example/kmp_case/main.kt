@@ -8,8 +8,8 @@ import androidx.compose.ui.window.rememberWindowState
 
 fun main() = application {
     val windowState = rememberWindowState(
-        width = 800.dp,
-        height = 600.dp
+        width = 1024.dp,
+        height = 768.dp
     )
     Window(
         onCloseRequest = ::exitApplication,
