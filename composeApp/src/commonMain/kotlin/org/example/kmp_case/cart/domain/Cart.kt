@@ -7,7 +7,8 @@ class Cart {
     private val _cart = mutableListOf<CartItem>()
     val cart: List<CartItem> get() = _cart
 
-    fun addProduct(product: Product) {
+    fun addProduct(product: Product?) {
+        if (product == null) return
         val existing = _cart.find { it.product.id == product.id }
         if (existing != null) {
             // CartItem found by the product. Incrementing quantity.
@@ -18,15 +19,8 @@ class Cart {
         }
     }
 
-    fun removeProduct(product: Product) {
-        val item: CartItem? = _cart.find { it.product.id == product.id }
-        if (item != null) {
-            // CartItem was found from product selected.
-            if (item.quantity > 1) item.decrement() else _cart.remove(item)
-        } else {
-            // CartItem was not found.
-            println("OrderService.kt at removeProduct(): CartItem was not found.")
-        }
+    fun removeProduct(item: CartItem) {
+        if (item.quantity > 1) item.decrement() else _cart.remove(item)
     }
 
     fun clearCart() = _cart.clear()

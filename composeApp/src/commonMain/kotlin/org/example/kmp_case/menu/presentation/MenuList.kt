@@ -19,7 +19,11 @@ import org.example.kmp_case.product_category.domain.ProductCategory
 import kotlin.math.floor
 
 @Composable
-fun MenuList(modifier: Modifier = Modifier, selectedCategory: ProductCategory?) {
+fun MenuList(
+    modifier: Modifier = Modifier,
+    selectedCategory: ProductCategory?,
+    onClick: (Product?) -> Unit,
+) {
     val repository: ProductRepository = TestProductRepository()
     val products by produceState(initialValue = emptyList<Product>(), key1 = repository) {
         value = repository.getProductsByCategory(selectedCategory?.name) // suspend call
@@ -37,7 +41,7 @@ fun MenuList(modifier: Modifier = Modifier, selectedCategory: ProductCategory?) 
             items(products) { product ->
                 ProductButton(
                     product = product,
-                    onClick = {},
+                    onClick = { onClick(product) },
                     modifier = Modifier.size(buttonSize).padding(spacing/2)
                 )
             }

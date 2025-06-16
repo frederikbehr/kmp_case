@@ -11,6 +11,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import org.example.kmp_case.cart.domain.Cart
 import org.example.kmp_case.checkout.presentation.CheckoutMenu
 import org.example.kmp_case.menu.presentation.MenuList
 import org.example.kmp_case.product_category.data.CategoryRepository
@@ -25,6 +26,7 @@ fun App() {
         value = repository.getCategories() // suspend call
     }
     val selectedCategory = remember { mutableStateOf<ProductCategory?>(null) }
+    val cart: Cart = Cart()
 
     LaunchedEffect(categories) { // When data is loaded, this sets the selected category to the first category
         if (categories.isNotEmpty() && selectedCategory.value == null) {
@@ -46,7 +48,8 @@ fun App() {
 
             MenuList(
                 modifier = Modifier.weight(1f).fillMaxHeight().background(Color(0xffededed)),
-                selectedCategory = selectedCategory.value
+                selectedCategory = selectedCategory.value,
+                onClick = { cart.addProduct(it) },
             ) // Products - Shows the products for the category selected
 
             CheckoutMenu(
