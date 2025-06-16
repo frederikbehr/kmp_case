@@ -53,7 +53,8 @@ fun App() {
             ) // Products - Shows the products for the category selected
 
             CheckoutMenu(
-                modifier = Modifier.width(300.dp).fillMaxHeight().background(Color.White)
+                modifier = Modifier.width(300.dp).fillMaxHeight().background(Color.White),
+                cart = cart
             ) // Cart - Shows the cart
         }
     }

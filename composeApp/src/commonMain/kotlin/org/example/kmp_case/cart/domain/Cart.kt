@@ -1,11 +1,13 @@
 package org.example.kmp_case.cart.domain
 
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.snapshots.SnapshotStateList
 import org.example.kmp_case.cart_item.domain.CartItem
 import org.example.kmp_case.product.domain.Product
 
 class Cart {
-    private val _cart = mutableListOf<CartItem>()
-    val cart: List<CartItem> get() = _cart
+    private val _cart = mutableStateListOf<CartItem>()
+    val cart: SnapshotStateList<CartItem> get() = _cart
 
     fun addProduct(product: Product?) {
         if (product == null) return
@@ -19,11 +21,11 @@ class Cart {
         }
     }
 
-    fun removeProduct(item: CartItem) {
+    fun removeCartItem(item: CartItem) {
         if (item.quantity > 1) item.decrement() else _cart.remove(item)
     }
 
-    fun clearCart() = _cart.clear()
+    fun clear() = _cart.clear()
 
     fun totalPrice(): Double = _cart.sumOf { it.getTotalPrice }
 

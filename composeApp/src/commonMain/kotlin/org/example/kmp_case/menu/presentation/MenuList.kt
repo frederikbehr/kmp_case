@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -36,7 +38,8 @@ fun MenuList(
         val buttonSize = (maxWidth - spacing * (itemsPerRow + 1)) / itemsPerRow
         LazyVerticalGrid(
             columns = GridCells.Fixed(itemsPerRow),
-            modifier = Modifier.padding(horizontal = spacing, vertical = 24.dp)
+            modifier = Modifier.padding(horizontal = spacing),
+            contentPadding = PaddingValues(top = 24.dp, bottom = 64.dp),
         ) {
             items(products) { product ->
                 ProductButton(
