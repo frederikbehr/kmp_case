@@ -10,12 +10,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun CheckoutMenu() {
+fun CheckoutMenu(modifier: Modifier) {
     Box(
-        Modifier
-            .width(300.dp)
-            .fillMaxHeight()
-            .background(Color.White)
+        modifier = modifier
     ) {
 
     }

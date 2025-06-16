@@ -1,11 +1,16 @@
 package org.example.kmp_case
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import org.example.kmp_case.checkout.presentation.CheckoutMenu
 import org.example.kmp_case.menu.presentation.MenuList
 import org.example.kmp_case.product_category.data.CategoryRepository
@@ -35,12 +40,18 @@ fun App() {
             CategoryMenu(
                 categories = categories,
                 selectedCategory = selectedCategory.value,
-                onClick = { selectedCategory.value = it }
+                onClick = { selectedCategory.value = it },
+                modifier = Modifier.width(200.dp).background(Color.White).fillMaxHeight(),
             ) // Categories - Shows the categories in the left
 
-            MenuList(modifier = Modifier.weight(1f)) // Products - Shows the products for the category selected
+            MenuList(
+                modifier = Modifier.weight(1f).fillMaxHeight().background(Color(0xffededed)),
+                selectedCategory = selectedCategory.value
+            ) // Products - Shows the products for the category selected
 
-            CheckoutMenu() // Cart - Shows the cart
+            CheckoutMenu(
+                modifier = Modifier.width(300.dp).fillMaxHeight().background(Color.White)
+            ) // Cart - Shows the cart
         }
     }
 }

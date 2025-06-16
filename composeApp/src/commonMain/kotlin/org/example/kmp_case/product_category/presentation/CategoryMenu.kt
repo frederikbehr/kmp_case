@@ -18,13 +18,11 @@ import org.example.kmp_case.product_category.domain.ProductCategory
 fun CategoryMenu(
     categories: List<ProductCategory>,
     selectedCategory: ProductCategory?,
-    onClick: (ProductCategory?) -> Unit
+    onClick: (ProductCategory?) -> Unit,
+    modifier: Modifier
 ) {
     Box(
-        Modifier
-            .width(200.dp)
-            .fillMaxHeight()
-            .background(Color.White)
+        modifier = modifier
     ) {
         LazyColumn(modifier = Modifier.fillMaxSize().padding(top = 24.dp)) {
             items(categories) { category ->

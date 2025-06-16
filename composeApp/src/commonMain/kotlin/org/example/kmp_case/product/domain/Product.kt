@@ -11,4 +11,6 @@ data class Product(
     val price: Price,
     val color: Color,
     val imageURL: String?,
-)
+) {
+    fun getFormattedPrice(): String = price.getFormattedPrice()
+}
