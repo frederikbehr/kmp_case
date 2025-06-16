@@ -6,7 +6,7 @@ data class CartItem(
     val product: Product,
     var quantity: Int,
 ) {
-    val getTotalPrice: Double get() = product.price * quantity
+    val getTotalPrice: Double get() = product.price.amount * quantity
 
     fun increment() = quantity++
 
