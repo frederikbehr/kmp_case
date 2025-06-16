@@ -9,25 +9,17 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.produceState
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import org.example.kmp_case.product_category.domain.ProductCategory
-import org.example.kmp_case.product_category.data.CategoryRepository
-import org.example.kmp_case.product_category.data.TestCategoryRepository
-
-
 
 @Composable
-fun CategoryMenu(repository: CategoryRepository = TestCategoryRepository()) {
-    val categories by produceState(initialValue = emptyList<ProductCategory>(), key1 = repository) {
-        value = repository.getCategories() // suspend call
-    }
-    val selectedCategory = remember { mutableStateOf<ProductCategory?>(null) }
+fun CategoryMenu(
+    categories: List<ProductCategory>,
+    selectedCategory: ProductCategory?,
+    onClick: (ProductCategory?) -> Unit
+) {
     Box(
         Modifier
             .width(200.dp)
@@ -38,8 +30,8 @@ fun CategoryMenu(repository: CategoryRepository = TestCategoryRepository()) {
             items(categories) { category ->
                 CategoryButton(
                     category = category,
-                    isSelected = selectedCategory.value == category,
-                    onClick =  { selectedCategory.value = category },
+                    isSelected = selectedCategory == category,
+                    onClick = { onClick(category) },
                 )
             }
         }
