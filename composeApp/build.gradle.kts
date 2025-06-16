@@ -91,6 +91,13 @@ compose.desktop {
             targetFormats(TargetFormat.Dmg, TargetFormat.Exe, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "org.example.kmp_case"
             packageVersion = "1.0.0"
+
+            macOS {
+                iconFile.set(project.file("resources/logo.icns"))
+            }
+            windows {
+                iconFile.set(project.file("resources/logo.ico"))
+            }
         }
         configurations.all {
 
