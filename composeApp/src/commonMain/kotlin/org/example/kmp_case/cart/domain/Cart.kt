@@ -27,7 +27,4 @@ class Cart {
 
     fun clear() = _cart.clear()
 
-    fun totalPrice(): Double = _cart.sumOf { it.getTotalPrice }
-
-
 }

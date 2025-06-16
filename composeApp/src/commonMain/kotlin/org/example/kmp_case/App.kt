@@ -26,7 +26,7 @@ fun App() {
         value = repository.getCategories() // suspend call
     }
     val selectedCategory = remember { mutableStateOf<ProductCategory?>(null) }
-    val cart: Cart = Cart()
+    val cart = Cart()
 
     LaunchedEffect(categories) { // When data is loaded, this sets the selected category to the first category
         if (categories.isNotEmpty() && selectedCategory.value == null) {

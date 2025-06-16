@@ -2,6 +2,7 @@ package org.example.kmp_case.cart_item.presentation
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -31,25 +32,36 @@ fun CartItemView(item: CartItem, onRemoveItem: () -> Unit) {
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Row(
+            Column(
                 modifier = Modifier.weight(1f).padding(end = 12.dp),
-                verticalAlignment = Alignment.CenterVertically,
             ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Text(
+                        text = item.quantity.toString(),
+                        fontWeight = FontWeight.Bold,
+                        textAlign = TextAlign.Start,
+                        fontSize = 16.sp,
+                        color = Color.Black.copy(alpha = 0.87f),
+                        modifier = Modifier.padding(end = 8.dp)
+                    )
+                    Text(
+                        text = item.product.name,
+                        fontWeight = FontWeight.Normal,
+                        textAlign = TextAlign.Start,
+                        fontSize = 14.sp,
+                        lineHeight = 15.sp,
+                        color = Color.Black.copy(alpha = 0.87f),
+                    )
+                }
                 Text(
-                    text = item.quantity.toString(),
+                    text = item.getTotalPrice.getFormattedPrice(),
                     fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Start,
-                    fontSize = 16.sp,
+                    fontSize = 14.sp,
                     color = Color.Black.copy(alpha = 0.87f),
                     modifier = Modifier.padding(end = 8.dp)
-                )
-                Text(
-                    text = item.product.name,
-                    fontWeight = FontWeight.Normal,
-                    textAlign = TextAlign.Start,
-                    fontSize = 14.sp,
-                    lineHeight = 15.sp,
-                    color = Color.Black.copy(alpha = 0.87f),
                 )
             }
             IconButton(
@@ -60,11 +72,12 @@ fun CartItemView(item: CartItem, onRemoveItem: () -> Unit) {
                     disabledContainerColor = Color.LightGray,
                     disabledContentColor = Color.Gray,
                 ),
+                modifier = Modifier.padding(8.dp)
             ) {
                 Icon(
                     imageVector = Icons.Filled.Remove,
                     contentDescription = "Remove",
-                    modifier = Modifier.size(22.dp),
+                    modifier = Modifier.size(18.dp),
                 )
             }
         }
