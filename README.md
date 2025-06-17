@@ -4,9 +4,13 @@
 
 This project was developed as a case. The goal was to use Kotlin Multiplatform and Jetpack Compose to make a POS solution (Point-Of-Sale). Furthermore, the requirements were to have it work for Android (Tablet only) and Windows.
 
-## Development Process
+Along the way, I wanted to use this case to learn more. Therefore, I dug into new features, and I was trying to put my self in a customer's shoes.
+For example, I guess the colors are there to make it easier for users to tell products apart at a quick glance, and therefore I thought images might be a great idea as well.
+They are unique and can make a product quick to spot, when a customer mentions it, but they should not be required. It is then important, that it looks great with and without images, and doing this was not as hard as I thought.
 
-It took less time than expected to complete the case. I spent extra time on unrequired features, and was interested in learning more about it during the development.
+## 🧑‍💻 Development Process
+
+It took less time than expected to complete the case. I spent extra time on extra features, and was interested in learning more about it during the development.
 
 I had fun working on it, and I found myself digging deep into it and watching a lot of Android- and KMP-focused videos online about it to learn new things.
 
@@ -16,6 +20,8 @@ You can use the application on the following platforms:
 
 - Windows
 - Android
+
+You will need the executable files to follow the installation guide.
 
 ### Installation
 
@@ -35,9 +41,6 @@ adb install -r path/to/mPOS.apk
 
 This requires the adb CLI to connect to emulators.
 
-### Running the App
-
-The application will run by itself once you open the executable file.
 
 ## ✨ Extra features & work
 
@@ -52,13 +55,14 @@ I have used the MVVM architecture, that Android recommends. Furthermore, I have 
 
 - Data classes and traditional classes
 - Enums (eg. for currency)
+- Object
 - Interface
     - for platform specific functionality such as NetworkImage
     - for repositories, that loads data (categories & menu items), so that it is defined how it should work, and a testing version can be used during testing and development.
 
 ## Folder structure
 
-The bulk of the code can be found in the CommonMain folder, where it is structured by domain (eg. product, category, cart).
+The bulk of the code can be found in the CommonMain folder, where it is structured by domain (eg. product, category, cart). However, there are platform specific code in AndroidMain and DesktopMain.
 
 There is a folder "core", where reusable and general code goes (eg. ColorUtils.kt or Currency), since it doesn't belong to a single domain.
 
