@@ -72,7 +72,6 @@ fun CartItemView(item: CartItem, onRemoveItem: () -> Unit) {
                     disabledContainerColor = Color.LightGray,
                     disabledContentColor = Color.Gray,
                 ),
-                modifier = Modifier.padding(8.dp)
             ) {
                 Icon(
                     imageVector = Icons.Filled.Remove,

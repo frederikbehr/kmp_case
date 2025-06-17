@@ -21,18 +21,7 @@ import org.example.kmp_case.product_category.presentation.CategoryMenu
 
 @Composable
 fun App() {
-    val repository: CategoryRepository = TestCategoryRepository()
-    val categories by produceState(initialValue = emptyList<ProductCategory>(), key1 = repository) {
-        value = repository.getCategories() // suspend call
-    }
-    val selectedCategory = remember { mutableStateOf<ProductCategory?>(null) }
-    val cart = Cart()
-
-    LaunchedEffect(categories) { // When data is loaded, this sets the selected category to the first category
-        if (categories.isNotEmpty() && selectedCategory.value == null) {
-            selectedCategory.value = categories.first()
-        }
-    }
+    val viewModel = remember { MainViewModel() }
 
     MaterialTheme {
         Row(
@@ -40,21 +29,20 @@ fun App() {
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             CategoryMenu(
-                categories = categories,
-                selectedCategory = selectedCategory.value,
-                onClick = { selectedCategory.value = it },
+                viewModel = viewModel,
+                onClick = { viewModel.setCategory(it) },
                 modifier = Modifier.width(200.dp).background(Color.White).fillMaxHeight(),
             ) // Categories - Shows the categories in the left
 
             MenuList(
-                modifier = Modifier.weight(1f).fillMaxHeight().background(Color(0xffededed)),
-                selectedCategory = selectedCategory.value,
-                onClick = { cart.addProduct(it) },
+                modifier = Modifier.weight(1f).fillMaxHeight().background(Color(0xFFEDEDED)),
+                viewModel = viewModel,
+                onClick = { viewModel.cart.addProduct(it) },
             ) // Products - Shows the products for the category selected
 
             CheckoutMenu(
                 modifier = Modifier.width(300.dp).fillMaxHeight().background(Color.White),
-                cart = cart
+                cart = viewModel.cart
             ) // Cart - Shows the cart
         }
     }

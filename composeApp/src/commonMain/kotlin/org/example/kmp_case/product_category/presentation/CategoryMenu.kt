@@ -32,13 +32,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import org.example.kmp_case.MainViewModel
 import org.example.kmp_case.core.domain.ColorUtils
 import org.example.kmp_case.product_category.domain.ProductCategory
 
 @Composable
 fun CategoryMenu(
-    categories: List<ProductCategory>,
-    selectedCategory: ProductCategory?,
+    viewModel: MainViewModel,
     onClick: (ProductCategory?) -> Unit,
     modifier: Modifier
 ) {
@@ -87,10 +87,10 @@ fun CategoryMenu(
                 modifier = Modifier.fillMaxSize().padding(top = 0.dp),
                 contentPadding = PaddingValues(bottom = 32.dp)
             ) {
-                items(categories) { category ->
+                items(viewModel.categories) { category ->
                     CategoryButton(
                         category = category,
-                        isSelected = selectedCategory == category,
+                        isSelected = viewModel.selectedCategory == category,
                         onClick = { onClick(category) },
                     )
                 }

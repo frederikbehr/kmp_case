@@ -6,30 +6,21 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.produceState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import org.example.kmp_case.product.data.ProductRepository
-import org.example.kmp_case.product.data.TestProductRepository
+import org.example.kmp_case.MainViewModel
 import org.example.kmp_case.product.domain.Product
 import org.example.kmp_case.product.presentation.ProductButton
-import org.example.kmp_case.product_category.domain.ProductCategory
 import kotlin.math.floor
 
 @Composable
 fun MenuList(
     modifier: Modifier = Modifier,
-    selectedCategory: ProductCategory?,
+    viewModel: MainViewModel,
     onClick: (Product?) -> Unit,
 ) {
-    val repository: ProductRepository = TestProductRepository()
-    val products by produceState(initialValue = emptyList<Product>(), key1 = repository) {
-        value = repository.getProductsByCategory(selectedCategory?.name) // suspend call
-    }
     BoxWithConstraints(
         modifier = modifier
     ) {
@@ -41,7 +32,7 @@ fun MenuList(
             modifier = Modifier.padding(horizontal = spacing),
             contentPadding = PaddingValues(top = 24.dp, bottom = 64.dp),
         ) {
-            items(products) { product ->
+            items(viewModel.products) { product ->
                 ProductButton(
                     product = product,
                     onClick = { onClick(product) },
