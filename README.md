@@ -62,7 +62,7 @@ I have used the MVVM architecture, that Android recommends. Furthermore, I have 
 
 ## Folder structure
 
-The bulk of the code can be found in the CommonMain folder, where it is structured by domain (eg. product, category, cart). However, there are platform specific code in AndroidMain and DesktopMain.
+The bulk of the code can be found in the commonMain folder, where it is structured by domain (eg. product, category, cart). However, there are platform specific code in androidMain and desktopMain.
 
 There is a folder "core", where reusable and general code goes (eg. ColorUtils.kt or Currency), since it doesn't belong to a single domain.
 
