@@ -11,19 +11,25 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import org.example.kmp_case.cart.domain.Cart
 import org.example.kmp_case.cart.presentation.CheckoutMenu
 import org.example.kmp_case.menu.presentation.MenuList
-import org.example.kmp_case.product_category.data.CategoryRepository
-import org.example.kmp_case.product_category.data.TestCategoryRepository
-import org.example.kmp_case.product_category.domain.ProductCategory
+import org.example.kmp_case.payment.presentation.PaymentProcessingDialog
 import org.example.kmp_case.product_category.presentation.CategoryMenu
 
 @Composable
 fun App() {
+    // viewModel is the glue of the application in regards to state.
+    // it keeps track of categories, products and the cart.
     val viewModel = remember { MainViewModel() }
 
     MaterialTheme {
+
+        // When a payment is being initiated, then this Dialog will show as an indicator.
+        // Despite being listed here, state dictates whether it is shown or not.
+        if (viewModel.paymentProcessor.isLoading.value) {
+            PaymentProcessingDialog(viewModel)
+        }
+
         Row(
             modifier = Modifier.fillMaxSize(),
             horizontalArrangement = Arrangement.SpaceBetween
@@ -42,7 +48,7 @@ fun App() {
 
             CheckoutMenu(
                 modifier = Modifier.width(300.dp).fillMaxHeight().background(Color.White),
-                cart = viewModel.cart
+                viewModel = viewModel
             ) // Cart - Shows the cart
         }
     }

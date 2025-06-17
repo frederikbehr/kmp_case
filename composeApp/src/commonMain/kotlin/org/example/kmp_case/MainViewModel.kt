@@ -3,8 +3,12 @@ package org.example.kmp_case
 import androidx.compose.runtime.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.example.kmp_case.cart.domain.Cart
+import org.example.kmp_case.payment.domain.PaymentProcessStatus
+import org.example.kmp_case.payment.domain.PaymentProcessor
+import org.example.kmp_case.payment.domain.TestPaymentProcessor
 import org.example.kmp_case.product.data.ProductRepository
 import org.example.kmp_case.product.data.TestProductRepository
 import org.example.kmp_case.product.domain.Product
@@ -16,6 +20,7 @@ class MainViewModel(
     private val categoryRepository: CategoryRepository = TestCategoryRepository(),
     private val productRepository: ProductRepository = TestProductRepository(),
 ) {
+    val paymentProcessor: PaymentProcessor by mutableStateOf(TestPaymentProcessor())
     var categories by mutableStateOf<List<ProductCategory>>(emptyList())
     var selectedCategory by mutableStateOf<ProductCategory?>(null)
     var products by mutableStateOf<List<Product>>(emptyList())
@@ -42,5 +47,19 @@ class MainViewModel(
 
     fun addToCart(product: Product) {
         cart.addProduct(product)
+    }
+
+    fun pay() {
+        CoroutineScope(Dispatchers.Main).launch {
+            if (!paymentProcessor.isLoading.value) {
+                paymentProcessor.isLoading.value = true
+                paymentProcessor.process()
+                delay(500)
+                paymentProcessor.isLoading.value = false
+                if (paymentProcessor.status.value == PaymentProcessStatus.PaymentSuccessful) {
+                    cart.clear()
+                }
+            }
+        }
     }
 }

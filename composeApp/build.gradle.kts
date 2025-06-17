@@ -15,12 +15,12 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
-    
+
     jvm("desktop")
-    
+
     sourceSets {
         val desktopMain by getting
-        
+
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
@@ -80,7 +80,6 @@ android {
 dependencies {
     debugImplementation(compose.uiTooling)
     implementation(libs.androidx.material.icons.extended)
-
 }
 
 compose.desktop {
@@ -99,10 +98,15 @@ compose.desktop {
                 iconFile.set(project.file("resources/logo.ico"))
             }
         }
-        configurations.all {
+    }
+}
 
-            exclude(group = "androidx.compose.ui", module = "ui-util")
-
-        }
+// Apply exclusion only to desktop/JVM configurations
+configurations.configureEach {
+    if (name.contains("desktop", ignoreCase = true) ||
+        name.contains("jvm", ignoreCase = true) ||
+        name.startsWith("desktop") ||
+        name.contains("Desktop")) {
+        exclude(group = "androidx.compose.ui", module = "ui-util")
     }
 }

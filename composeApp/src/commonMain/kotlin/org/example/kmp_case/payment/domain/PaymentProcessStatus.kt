@@ -1,4 +1,4 @@
-package org.example.kmp_case.payment
+package org.example.kmp_case.payment.domain
 
 enum class PaymentProcessStatus {
     AwaitingCard,

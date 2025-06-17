@@ -32,11 +32,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import org.example.kmp_case.cart.domain.Cart
+import org.example.kmp_case.MainViewModel
 import org.example.kmp_case.core.domain.ColorUtils
 
 @Composable
-fun CheckoutMenu(modifier: Modifier, cart: Cart) {
+fun CheckoutMenu(modifier: Modifier, viewModel: MainViewModel) {
     Box(
         modifier = modifier
             .fillMaxSize()
@@ -69,8 +69,8 @@ fun CheckoutMenu(modifier: Modifier, cart: Cart) {
                     color = Color.Black.copy(alpha = 0.87f),
                 )
                 Button(
-                    enabled = cart.cart.isNotEmpty(),
-                    onClick = { cart.clear() },
+                    enabled = viewModel.cart.cart.isNotEmpty(),
+                    onClick = { viewModel.cart.clear() },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color.Red.copy(alpha = 0.12f),
                         contentColor = Color.Red,
@@ -96,7 +96,7 @@ fun CheckoutMenu(modifier: Modifier, cart: Cart) {
                 color = ColorUtils.parseColor("#eeeeee")
             )
             CartMenu(
-                cart = cart,
+                cart = viewModel.cart,
                 modifier = Modifier.weight(1f)
             )
             HorizontalDivider(
@@ -121,7 +121,7 @@ fun CheckoutMenu(modifier: Modifier, cart: Cart) {
                             modifier = Modifier.padding(bottom = 12.dp)
                         )
                         Text(
-                            text = cart.getTotalPrice().getFormattedPrice(),
+                            text = viewModel.cart.getTotalPrice().getFormattedPrice(),
                             fontWeight = FontWeight.Medium,
                             textAlign = TextAlign.Start,
                             fontSize = 20.sp,
@@ -130,8 +130,8 @@ fun CheckoutMenu(modifier: Modifier, cart: Cart) {
                         )
                     }
                     Button(
-                        enabled = cart.cart.isNotEmpty(),
-                        onClick = {  },
+                        enabled = viewModel.cart.cart.isNotEmpty(),
+                        onClick = { viewModel.pay() },
                         colors = ButtonDefaults.buttonColors(
                             containerColor = ColorUtils.parseColor("#0ca577"),
                             contentColor = Color.White,

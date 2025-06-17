@@ -38,13 +38,13 @@ fun CartMenu(modifier: Modifier, cart: Cart) {
                     imageVector = Icons.Filled.ShoppingBasket,
                     contentDescription = "Empty cart",
                     modifier = Modifier.size(32.dp).padding(bottom = 8.dp),
-                    tint = Color.Gray
+                    tint = Color.LightGray
                 )
                 Text(
                     text = "No products added",
                     fontWeight = FontWeight.Medium,
                     fontSize = 12.sp,
-                    color = Color.Gray
+                    color = Color.LightGray
                 )
             }
         } else {
