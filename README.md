@@ -1,4 +1,4 @@
-# 📱 POS/mPOS Case
+# 🖥️ POS/mPOS Case
 
 ## 🧭 Overview
 
