@@ -32,7 +32,7 @@ fun CategoryButton(
             .fillMaxWidth()
             .padding(vertical = 4.dp, horizontal = 12.dp),
         colors = ButtonDefaults.buttonColors(
-            containerColor = if (isSelected) category.color else category.color.copy(alpha = 0.24f)
+            containerColor = if (isSelected) category.color else category.color.copy(alpha = 0.3f)
         ),
         shape = RoundedCornerShape(8.dp),
     ) {

@@ -44,7 +44,7 @@ fun CartItemView(item: CartItem, onRemoveItem: () -> Unit) {
                         textAlign = TextAlign.Start,
                         fontSize = 16.sp,
                         color = Color.Black.copy(alpha = 0.87f),
-                        modifier = Modifier.padding(end = 8.dp)
+                        modifier = Modifier.padding(end = 12.dp)
                     )
                     Text(
                         text = item.product.name,
