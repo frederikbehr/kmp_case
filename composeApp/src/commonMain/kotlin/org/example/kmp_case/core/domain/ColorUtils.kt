@@ -4,6 +4,16 @@ import androidx.compose.ui.graphics.Color
 
 class ColorUtils {
     companion object {
+
+        val blue: Color = parseColor("#0090d6")
+        val orange: Color = parseColor("#fe6729")
+        val green: Color = parseColor("#4b972f")
+        val darkBrown: Color = parseColor("#665758")
+        val brick: Color = parseColor("#8a5758")
+        val lightBlue: Color = parseColor("#00d1f8")
+        val salmon: Color = parseColor("#bb4238")
+        val darkBlue: Color = parseColor("#1d2b4c")
+
         fun parseColor(hex: String): Color {
             return try {
                 Color(

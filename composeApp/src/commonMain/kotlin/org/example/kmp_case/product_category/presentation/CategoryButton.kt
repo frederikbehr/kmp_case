@@ -15,6 +15,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -30,9 +32,10 @@ fun CategoryButton(
         onClick = onClick,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 4.dp, horizontal = 12.dp),
+            .padding(vertical = 1.dp, horizontal = 12.dp)
+            .scale(if (isSelected) 1f else 0.9f).alpha(if (isSelected) 1f else 0.8f),
         colors = ButtonDefaults.buttonColors(
-            containerColor = if (isSelected) category.color else category.color.copy(alpha = 0.3f)
+            containerColor = category.color
         ),
         shape = RoundedCornerShape(8.dp),
     ) {
@@ -49,7 +52,7 @@ fun CategoryButton(
                 text = category.name,
                 fontSize = 14.sp,
                 modifier = Modifier.padding(vertical = 16.dp),
-                color = if (isSelected) Color.White else Color.Black.copy(alpha = 0.73f)
+                color = Color.White
             )
         }
     }

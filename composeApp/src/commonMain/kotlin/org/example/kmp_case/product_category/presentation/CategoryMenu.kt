@@ -34,6 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.example.kmp_case.MainViewModel
 import org.example.kmp_case.core.domain.ColorUtils
+import org.example.kmp_case.core.presentation.IconTextButton
 import org.example.kmp_case.product_category.domain.ProductCategory
 
 @Composable
@@ -55,8 +56,7 @@ fun CategoryMenu(
             }
     ) {
         Column {
-            Button(
-                onClick = {  },
+            IconTextButton(
                 modifier = Modifier
                     .windowInsetsPadding(WindowInsets.safeDrawing.only(WindowInsetsSides.Top))
                     .padding(horizontal = 12.dp)
@@ -66,18 +66,11 @@ fun CategoryMenu(
                     containerColor = ColorUtils.parseColor("#eeeeee"),
                     contentColor = Color.Gray,
                 ),
-            ) {
-                Icon(
-                    imageVector = Icons.Filled.AccountBox,
-                    contentDescription = "Sign in",
-                    modifier = Modifier.size(22.dp).padding(end = 8.dp),
-                )
-                Text(
-                    text = "Signed in", // for simulation purposes
-                    fontWeight = FontWeight.Medium,
-                    fontSize = 14.sp,
-                )
-            }
+                icon = Icons.Filled.AccountBox,
+                text = "Signed in",
+                iconSize = 22.dp,
+                fontSize = 14.sp,
+            )
             HorizontalDivider(
                 thickness = 2.dp,
                 modifier = Modifier.padding(12.dp),
@@ -86,6 +79,7 @@ fun CategoryMenu(
             LazyColumn(
                 modifier = Modifier.fillMaxSize().padding(top = 0.dp),
                 contentPadding = PaddingValues(bottom = 32.dp)
+
             ) {
                 items(viewModel.categories) { category ->
                     CategoryButton(

@@ -34,6 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.example.kmp_case.MainViewModel
 import org.example.kmp_case.core.domain.ColorUtils
+import org.example.kmp_case.core.presentation.IconTextButton
 
 @Composable
 fun CheckoutMenu(modifier: Modifier, viewModel: MainViewModel) {
@@ -68,27 +69,20 @@ fun CheckoutMenu(modifier: Modifier, viewModel: MainViewModel) {
                     fontSize = 18.sp,
                     color = Color.Black.copy(alpha = 0.87f),
                 )
-                Button(
-                    enabled = viewModel.cart.cart.isNotEmpty(),
-                    onClick = { viewModel.cart.clear() },
+                IconTextButton(
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color.Red.copy(alpha = 0.12f),
                         contentColor = Color.Red,
                         disabledContainerColor = ColorUtils.parseColor("#ededed"),
                         disabledContentColor = Color.LightGray,
-                    )
-                ) {
-                    Icon(
-                        imageVector = Icons.Filled.DeleteSweep,
-                        contentDescription = "Clear",
-                        modifier = Modifier.size(24.dp).padding(end = 4.dp),
-                    )
-                    Text(
-                        text = "Clear",
-                        fontWeight = FontWeight.Medium,
-                        fontSize = 14.sp,
-                    )
-                }
+                    ),
+                    enabled = viewModel.cart.cart.isNotEmpty(),
+                    icon = Icons.Filled.DeleteSweep,
+                    text = "Clear",
+                    iconSize = 24.dp,
+                    fontSize = 14.sp,
+                    onClick = { viewModel.cart.clear() },
+                )
             }
             HorizontalDivider(
                 thickness = 2.dp,
@@ -129,7 +123,7 @@ fun CheckoutMenu(modifier: Modifier, viewModel: MainViewModel) {
                             modifier = Modifier.padding(bottom = 12.dp)
                         )
                     }
-                    Button(
+                    IconTextButton(
                         enabled = viewModel.cart.cart.isNotEmpty(),
                         onClick = { viewModel.pay() },
                         colors = ButtonDefaults.buttonColors(
@@ -138,19 +132,12 @@ fun CheckoutMenu(modifier: Modifier, viewModel: MainViewModel) {
                             disabledContainerColor = ColorUtils.parseColor("#ededed"),
                             disabledContentColor = Color.LightGray,
                         ),
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        Icon(
-                            imageVector = Icons.Filled.Payment,
-                            contentDescription = "Pay",
-                            modifier = Modifier.size(22.dp).padding(end = 4.dp),
-                        )
-                        Text(
-                            text = "Pay",
-                            fontWeight = FontWeight.Medium,
-                            fontSize = 15.sp,
-                        )
-                    }
+                        modifier = Modifier.fillMaxWidth(),
+                        icon = Icons.Filled.Payment,
+                        iconSize = 22.dp,
+                        text = "Pay",
+                        fontSize = 15.sp,
+                    )
                 }
             }
         }

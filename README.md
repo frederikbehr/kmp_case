@@ -16,15 +16,24 @@ You can use the application on the following platforms:
 
 - Windows
 - Android
-- Mac
 
 ### Installation
 
 Use the executable files with the following extensions to run the application:
 
-- Windows: .exe
-- Mac: .dmg
-- Android: .apk
+#### Windows: .exe
+
+On Windows, double-tap the mPOS.exe file. Will only work on windows.
+
+#### Android: .apk
+
+Use your own preferred method, or:
+
+```
+adb install -r path/to/mPOS.apk
+```
+
+This requires the adb CLI to connect to emulators.
 
 ### Running the App
 

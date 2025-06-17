@@ -88,11 +88,12 @@ compose.desktop {
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Exe, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "org.example.kmp_case"
+            packageName = "mPOS"
             packageVersion = "1.0.0"
 
             macOS {
                 iconFile.set(project.file("resources/logo.icns"))
+                dockName = "mPOS"
             }
             windows {
                 iconFile.set(project.file("resources/logo.ico"))
