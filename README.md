@@ -29,7 +29,7 @@ Use the executable files with the following extensions to run the application:
 
 #### Windows: .exe
 
-On Windows, I could make a .exe/.msi installer, but the file would not run. I got an error: "Failed to launch JVM". I am not sure why this happened, but it could be linked to being on another person's PC. Normally, I develop on a mac, but an .exe file is for Windows.
+On Windows, I could make a .exe/.msi installer, but the file would not run. I got an error: "Failed to launch JVM". I am not sure why this happened, but it could be linked to being on another person's PC. Normally, I develop on a mac, so when I needed the .exe-file, I had to borrow my girlfriend's Windows PC, where it could run during development, but not as being packaged as a .exe.
 
 #### Android: .apk
 
