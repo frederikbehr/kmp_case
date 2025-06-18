@@ -19,7 +19,7 @@ class Cart {
             existing.quantity++
         } else {
             // CartItem was not found by product id. Therefore adding new CartItem with product.
-            _cart.addFirst(CartItem(product, 1))
+            _cart.add(0, CartItem(product, 1))
         }
     }
 

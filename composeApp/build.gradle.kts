@@ -111,3 +111,5 @@ configurations.configureEach {
         exclude(group = "androidx.compose.ui", module = "ui-util")
     }
 }
+
+tasks.named("desktopRun").configure { enabled = false }
