@@ -16,7 +16,7 @@ I had fun working on it, and I found myself digging deep into it and watching a 
 
 ## 🚀 Getting Started
 
-You can use the application on the following platforms:
+The application is made for the following platforms:
 
 - Windows
 - Android
@@ -29,17 +29,19 @@ Use the executable files with the following extensions to run the application:
 
 #### Windows: .exe
 
-On Windows, double-tap the mPOS.exe file. Will only work on windows.
+On Windows, I could make a .exe/.msi installer, but the file would not run. I got an error: "Failed to launch JVM". I am not sure why this happened, but it could be linked to being on another person's PC. Normally, I develop on a mac, but an .exe file is for Windows.
 
 #### Android: .apk
 
-Use your own preferred method, or:
+Drag and drop the .apk file onto an emulator
+
+or
 
 ```
 adb install -r path/to/mPOS.apk
 ```
 
-This requires the adb CLI to connect to emulators.
+The last method requires the adb CLI to connect to emulators.
 
 
 ## ✨ Extra features & work
@@ -56,6 +58,8 @@ I have used the MVVM architecture, that Android recommends. Furthermore, I have 
 - Data classes and traditional classes
 - Enums (eg. for currency)
 - Object
+- State
+- Expect / Actual
 - Interface
     - for platform specific functionality such as NetworkImage
     - for repositories, that loads data (categories & menu items), so that it is defined how it should work, and a testing version can be used during testing and development.
@@ -69,6 +73,8 @@ There is a folder "core", where reusable and general code goes (eg. ColorUtils.k
 ## Issues
 
 Along the way, there were obviously issues (as there always are), and the most difficult ones were with the desktop support.
+
+In the end, I could run it during development, but it would not work when packaged into .exe or .dmg
 
 #### Hardest one:
 
