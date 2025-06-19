@@ -21,7 +21,7 @@ The application is made for the following platforms:
 - Windows
 - Android
 
-You will need the executable files to follow the installation guide.
+You will need the executable files to follow the installation guide. They can be found in the root of this repository in "executable_files"
 
 ### Installation
 
@@ -29,7 +29,7 @@ Use the executable files with the following extensions to run the application:
 
 #### Windows: .exe
 
-On Windows, I could make a .exe/.msi installer, but the file would not run. I got an error: "Failed to launch JVM". I am not sure why this happened, but it could be linked to being on another person's PC. Normally, I develop on a mac, but an .exe file is for Windows.
+On Windows, I could make a .exe/.msi installer, but the file would not run. I got an error: "Failed to launch JVM". I am not sure why this happened, but it could be linked to being on another person's PC. Normally, I develop on a mac, so when I needed the .exe-file, I had to borrow my girlfriend's Windows PC, where it could run during development, but not as being packaged as a .exe.
 
 #### Android: .apk
 
@@ -63,6 +63,10 @@ I have used the MVVM architecture, that Android recommends. Furthermore, I have 
 - Interface
     - for platform specific functionality such as NetworkImage
     - for repositories, that loads data (categories & menu items), so that it is defined how it should work, and a testing version can be used during testing and development.
+ 
+## UI
+
+I tried to keep the UI similar to the case's provided example image, and by setting a target size for each product button, it automatically shows more or fewer buttons in the menu, so it looks great on different size windows. Other than that, my goal was to make it feel responsive, but also feel responsive.
 
 ## Folder structure
 
