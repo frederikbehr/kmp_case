@@ -63,6 +63,10 @@ I have used the MVVM architecture, that Android recommends. Furthermore, I have 
 - Interface
     - for platform specific functionality such as NetworkImage
     - for repositories, that loads data (categories & menu items), so that it is defined how it should work, and a testing version can be used during testing and development.
+ 
+## UI
+
+I tried to keep the UI similar to the case's provided example image, and by setting a target size for each product button, it automatically shows more or fewer buttons in the menu, so it looks great on different size windows. Other than that, my goal was to make it feel responsive, but also feel responsive.
 
 ## Folder structure
 
