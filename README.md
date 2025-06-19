@@ -21,7 +21,7 @@ The application is made for the following platforms:
 - Windows
 - Android
 
-You will need the executable files to follow the installation guide.
+You will need the executable files to follow the installation guide. They can be found in the root of this repository in "executable_files"
 
 ### Installation
 
